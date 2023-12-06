@@ -1,7 +1,6 @@
 ---
 title: "LightCV"
 created: 5 December 2023
-modified: \today
 date: \today
 author: David W. Agler
 tags:
