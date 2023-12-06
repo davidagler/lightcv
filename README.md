@@ -28,12 +28,18 @@ Since the `lightcv` is based on the article class, it accepts the same options. 
 - `11pt` or `12pt` - Font size
 - `letterpaper` or `a4paper` - Paper size
 
-In addition, the `lightcv` class accepts an option based on whether you want a header on the first page. The default is to not have a header on the first page.
+In addition, the `lightcv` class accepts an option based on whether you want a header on the first page. This is the `p1header` option. The default is to not have a header on the first page.
 
 ```latex
 - \documentclass{lightcv} % No header on first page
 - \documentclass[p1noheader]{lightcv} % No header on first page- 
 - \documentclass[p1header]{lightcv} % Header on first page
+```
+
+Another option is to load `darkmode` or `lightmode` (default `lightmode`). Right now, `darkmode` only changes the page color to black and the text to gray.
+
+```latex
+\documentclass[darkmode]{lightcv}
 ```
 
 Some of the `article` class options are not compatible with the `lightcv` class. For example, `twocolumn` will produce an error message since the `lightcv` class is not designed for two columns.

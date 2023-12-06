@@ -1,6 +1,9 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{lightcv}[2023-12-01 LightCV is a \LaTeX\ for creating CVs. The goal is to create a simple, easy to use template rather than a robust class. The class is based on the article class. The target audience is people who are not familiar with \LaTeX\ and want to create a CV or resume.]
 
+\RequirePackage{xcolor, pagecolor}
+\DeclareOption{darkmode}{\pagecolor{black}\color{gray}}
+\DeclareOption{lightmode}{\pagecolor{white}\color{black}}
 \DeclareOption{p1noheader}{\AtBeginDocument{\thispagestyle{empty}}}
 \DeclareOption{p1header}{} % Define an option to enable/enable the header
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
@@ -16,8 +19,10 @@
 
 \RequirePackage[breaklinks]{hyperref}
 \RequirePackage{url}
-\hypersetup{colorlinks=true, breaklinks=true} % Set link colors
-\RequirePackage{xcolor}
+\hypersetup{colorlinks=true, breaklinks=true}
+
+ % Set link colors
+
 
 % HEADERS AND FOOTERS
 \RequirePackage{fancyhdr}
@@ -44,7 +49,6 @@
 % Fonts
 \RequirePackage[T1]{fontenc}
 \RequirePackage{fontawesome} % For Icons
-
 \RequirePackage{calc}
 
 % SECTION FORMATTING 4
