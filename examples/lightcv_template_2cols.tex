@@ -1,17 +1,19 @@
 % A LaTeX template for a modern simple academic CV using the LightCV Class by David W. Agler
-\documentclass[p1noheader, 12pt]{lightcv}
+\documentclass[p1noheader, 12pt, darkmode]{lightcv}
+\hypersetup{linkcolor=magenta!30, urlcolor=magenta!30}
 \author{John Doe}
+
 \begin{document}
 
-\ContactInfo{
-    \crow[\faHome ]{123 Main St, Anytown, USA}
+\ContactInfo[2][
+    \crow[\faHome]{123 Main St, Anytown, USA}
     \crow[\faPhone]{(123) 456-XXXX}
     \crow[\faEnvelopeO]{john.doe@example.com}
-}{
+][
     \crow[\faLinkedin]{linkedin.com/in/johndoe}
     \crow[\faGithub]{github.com}
     \crow[\faTwitter]{twitter.com/davidagler}
-}
+]
 
 \begin{dated}[Education]
     2010 - 2014 & \textbf{Bachelor of Science in Computer Science}, University of Anytown \\

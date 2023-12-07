@@ -58,21 +58,30 @@ This should be set in the preamble as follows:
 \author{John Doe}
 ```
 
-`\ContactInfo{left}{right}`: Creates a two-column contact information section. Each column consists of itemized lists of contact details. Each row of the contact details is created using the `\crow[]{}` command. The optional argument is the contact detail type / label. The mandatory argument is the contact detail. The `\crow` command can be used multiple times to create multiple rows of contact details.
+`\ContactInfo[int][1st_col][2nd_col]`: Creates a multi-column contact information section. The first column is an integer "1 or 2" that specifies the number of columns you would like under your name. Each column consists of itemized lists of contact details. Each row of the contact details is created using the `\crow[]{}` command. The optional argument is the contact detail type / label. The mandatory argument is the contact detail. The `\crow` command can be used multiple times to create multiple rows of contact details.
 
-The `\ContactInfo{left}{right}` should be used after the `\begin{document}` command as follows:
+The `\ContactInfo[][]` should be used after the `\begin{document}` command as follows:
 
 ```latex
-\ContactInfo{
+% One column of contact details
+\ContactInfo[1][
     \crow[]{123 Main St, Anytown, USA}
     \crow[]{(123) 456-XXXX}
-}{
-    \crow[]{linkedin.com/in/johndoe}
-    \crow[]{github.com/johndoe}
-}
+]
 ```
 
-The `\contactleftmargin` and `\contactrightmargin` lengths determine the left and right margins of the contact details section. The `\contactsep` length determines the space between the left and right columns of the contact details section. The default of these lengths are `1in`, `1in`, and `1cm`, respectively. You can customize these lengths by using the `\setlength` command:
+```latex
+% Two columns of contact details
+\ContactInfo[2][
+    \crow[]{123 Main St, Anytown, USA}
+    \crow[]{(123) 456-XXXX}
+][
+    \crow[]{linkedin.com/in/johndoe}
+    \crow[]{github.com/johndoe}
+]
+```
+
+For two columns, the margins are set using the `\contactleftmargin` and `\contactrightmargin` lengths. The `\contactsep` length determines the space between the left and right columns of the contact details section. The default of these lengths are `1in`, `1in`, and `1cm`, respectively. You can customize these lengths by using the `\setlength` command:
 
 ```tex
 \setlength{\contactleftmargin}{2em} % adjust this value as needed
@@ -83,17 +92,14 @@ The `\contactleftmargin` and `\contactrightmargin` lengths determine the left an
 Personally, I like using [fontawesome icons](https://ctan.org/pkg/fontawesome?lang=en) for the labels of the contact details. The following replaces the labels with fontawesome icons:
 
 ```latex
-\ContactInfo{
-    \crow[]{123 Main St, Anytown, USA}
-    \crow[]{(123) 456-XXXX}
+\ContactInfo[1][
+    \crow[\faHome]{123 Main St, Anytown, USA}
+    \crow[\faPhone]{(123) 456-XXXX}
     \crow[\faEnvelopeO]{john.doe@example.com}
-}{
-    \crow[]{linkedin.com/in/johndoe}
-    \crow[\faGithub]{github.com/johndoe}
-}
+]
 ```
 
-In the future, I plan to implement a command that will allow to specify the number of columns in the contact details section and work on the spacing of the contact details section.
+In the future, I plan to implement a command that will allow to specify add a third column.
 
 ### The Dated Environment
 
@@ -207,65 +213,4 @@ Finally, `\catlist{left}{right}` is similar to catbox in that it creates two min
 
 ## Templates
 
-Here is a template for a CV (a text version is available on Github):
-
-```latex
-% A LaTeX template for a modern simple academic 
-% CV using the Lightcv Class by David W. Agler
-\documentclass[p1noheader, 12pt]{lightcv}
-\author{John Doe}
-\begin{document}
-
-\ContactInfo{
-    \crow[\faHome ]{123 Main St, Anytown, USA}
-    \crow[\faPhone]{(123) 456-XXXX}
-    \crow[\faEnvelopeO]{john.doe@example.com}
-}{
-    \crow[\faLinkedin]{linkedin.com/in/johndoe}
-    \crow[\faGithub]{github.com}
-    \crow[\faTwitter]{twitter.com/davidagler}
-}
-
-\begin{dated}[Education]
-    2010 - 2014 & \textbf{Bachelor of 
-    Science in Computer Science}, University of Anytown \\
-    2014 - 2016 & \textbf{Master of Science in Computer Science},
-    University of Anytown
-\end{dated}
-
-\begin{rlist}[Publications]
-    \item Doe, J. 2015. An important paper. \textit{Journal of
-    Important Research}, 123(4), 567-890.
-    \item Doe, J. 2016. Another important paper. \textit{Journal
-    of More Important Research}, 234(5), 678-901.
-\end{rlist}
-
-\begin{rlist}[Independent Studies][enumerate]
-    \item Advanced Study in Computer Science. John Doe. 2016. 
-    \item Advanced Study in Complexity. John Doe. 2014. 
-\end{rlist}
-
-\begin{dated}[Courses Taught]
-    PHIL 001& Introduction to Philosophy\\
-    PHIL 003& Philosophy of Well-being\\
-    PHIL 004& The Human Condition\\
-\end{dated}
-
-\begin{catsec}[Skills]
-    \catbox{Languages}{Python, HTML, CSS, JavaScript, \LaTeX}
-    \catbox{Frameworks}{Flask, React, Angular}
-    \catbox{Databases}{MySQL, PostgreSQL, MongoDB}
-\end{catsec}
-
-\begin{catsec}[Powers]
-    \catlist{Super}{
-        \item Flight
-        \item Telepathy
-        \item Telekinesis}
-    \catlist{Normal}{
-        \item Running
-        \item Biking
-        \item Swimming}
-\end{catsec}
-\end{document}
-```
+For examples / templates of how to use the `lightcv` class, see the `examples` directory in [the GitHub repository](https://github.com/davidagler/lightcv).

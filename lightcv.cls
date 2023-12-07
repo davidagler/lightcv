@@ -2,7 +2,8 @@
 \ProvidesClass{lightcv}[2023-12-01 LightCV is a \LaTeX\ for creating CVs. The goal is to create a simple, easy to use template rather than a robust class. The class is based on the article class. The target audience is people who are not familiar with \LaTeX\ and want to create a CV or resume.]
 
 \RequirePackage{xcolor, pagecolor}
-\DeclareOption{darkmode}{\pagecolor{black}\color{gray}}
+\definecolor{uberdarkgray}{gray}{0.15}
+\DeclareOption{darkmode}{\pagecolor{uberdarkgray}\color{gray!30}}
 \DeclareOption{lightmode}{\pagecolor{white}\color{black}}
 \DeclareOption{p1noheader}{\AtBeginDocument{\thispagestyle{empty}}}
 \DeclareOption{p1header}{} % Define an option to enable/enable the header
@@ -21,14 +22,18 @@
 \RequirePackage{url}
 \hypersetup{colorlinks=true, breaklinks=true}
 
- % Set link colors
-
-
 % HEADERS AND FOOTERS
 \RequirePackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}%clear all headers and footers
 \renewcommand{\headrulewidth}{1pt}
+
+% Fonts
+\RequirePackage{Archivo}
+\RequirePackage[T1]{fontenc}
+\RequirePackage{fontawesome} % For Icons
+\RequirePackage{calc}
+\RequirePackage{ifthen}
 
 % Store the author information to use as title and header
 \newcommand{\storedauthor}{} % init the var
@@ -46,10 +51,7 @@
 \fancyhead[L]{\large \sffamily \storedauthor}
 \fancyhead[R]{\large \sffamily CV - \thepage}
 
-% Fonts
-\RequirePackage[T1]{fontenc}
-\RequirePackage{fontawesome} % For Icons
-\RequirePackage{calc}
+
 
 % SECTION FORMATTING 4
 \RequirePackage{titlesec}
@@ -65,23 +67,34 @@
 \newlength{\contactsep}
 \setlength{\contactsep}{1cm}
 %% CONTACT COMMAND
-\NewDocumentCommand{\ContactInfo}{mm}{
-    {\centering\Huge\sffamily\storedauthor\par\vspace{0.25em}}
-    \normalsize
-    \hspace{\contactleftmargin}
-    \begin{minipage}[t]{.35\textwidth}%
-        \begin{itemize}[noitemsep,topsep=0pt, partopsep=0pt, leftmargin=0em]
-          #1
+% Define your contact info command
+\NewDocumentCommand{\ContactInfo}{O{1}oo}{
+  {\centering\Huge\storedauthor\par\vspace{0.25em}\normalsize}%\sffamily\
+  \ifthenelse{#1=1}{% Single contact info
+  \begin{minipage}[t]{1\textwidth}
+      \begin{itemize}[noitemsep,topsep=0pt, partopsep=0pt, leftmargin=0em]\centering
+        #2
       \end{itemize}
     \end{minipage}
-    \hspace{\contactsep}
-    \begin{minipage}[t]{.35\textwidth}%
+  }{%
+    \ifthenelse{#1=2}{% Double column contact info
+      {\hspace{\contactleftmargin}}
+      \begin{minipage}[t]{.35\textwidth}%
+        \begin{itemize}[noitemsep,topsep=0pt, partopsep=0pt, leftmargin=0em]
+          #2
+        \end{itemize}
+      \end{minipage}
+      \hspace{\contactsep}
+      \begin{minipage}[t]{.35\textwidth}%
         \begin{itemize}[noitemsep,topsep=0pt,partopsep=0pt, leftmargin=0em]
-            #2
+          #3
         \end{itemize}
       \end{minipage}
       \hspace{\contactrightmargin}
-      }
+    }{%
+    }%
+  }% End of ifthenelse
+}
 
 %% The DATED ENVIRONMENT
 % \newenvironment{dated}[1][Employment] - Used to create a section with a date on the left and details on the right.
@@ -95,7 +108,6 @@
 
 %% RLIST ENVIRONMENT
 % \newenvironment{rlist}[1][Publications] - Used to create a section with a reverse enumerated list. Use is just like a list environment: \begin{rlist}\item First item \item Second item \end{rlist} Optional second argument can be used to specify the type of list (e.g. enumerate, itemize, description, etc.)
-
 \newlength{\rlistleftmargin}
 \setlength{\rlistleftmargin}{2.5em}
 \NewDocumentEnvironment{rlist}{O{Publications} O{etaremune}}{
@@ -106,6 +118,8 @@
     \end{#2}
 }
 
+
+%% CATSEC ENVIRONMENT
 \newlength{\catsep}
 \setlength{\catsep}{0.5em}
 \newlength{\catnameboxwidth}
@@ -116,13 +130,14 @@
 \newenvironment{catsec}[1][Category Section]{\section*{#1}}{\vspace{-10pt}}
 
 \NewDocumentCommand{\catbox}{mm}{
+    \hspace{\catindent}
     \begin{minipage}[t]{\catnameboxwidth}%
     #1%
     \end{minipage}
     \hspace{\catsep}
     \begin{minipage}[t]{\catdescboxwidth}%
       #2%
-      \end{minipage}\\
+      \end{minipage}\hfill\smallbreak\par
         }
 
 \newlength{\catindent}
@@ -137,10 +152,6 @@
     \begin{itemize}[leftmargin=0em,noitemsep,topsep=0pt, partopsep=0pt,labelsep=0.5em, label={-}]%
         #2%
     \end{itemize}%
-  \end{minipage}\hfill\vspace{0.5em}\par
+  \end{minipage}\hfill\medbreak\par
   }
-    %\begin{itemize}[leftmargin=1em,noitemsep,topsep=0pt, partopsep=0pt]%
-    %    #2
-    %\end{itemize}\vspace{0.5em}
-       
       
