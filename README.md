@@ -9,7 +9,7 @@ tags:
 ---
 # LightCV
 
-LightCV is a LaTeX class for creating a simple CV or resume. It is based on the article class, with additions for a CV. There are several good (and probably better) CV classes and packages available. Some include: [biblatex-cv](https://ctan.org/pkg/biblatex-cv), [cv](https://ctan.org/pkg/cv), [EuropeCV](https://ctan.org/pkg/europecv), [moderncv](https://ctan.org/pkg/moderncv?lang=en), [currvita](https://ctan.org/pkg/currvita), [simplecv](https://ctan.org/pkg/simplecv), and [readablecv](https://ctan.org/pkg/readablecv). All are worth checking out. I wanted to figure out how \LaTeX\ classes worked so I created one for myself. I am sharing it here in case it is useful to others.
+LightCV is a LaTeX class for creating a simple CV or resume. It is based on the article class, with additions for a CV. There are several good (and probably better) CV classes and packages available. Some include: [biblatex-cv](https://ctan.org/pkg/biblatex-cv), [cv](https://ctan.org/pkg/cv), [EuropeCV](https://ctan.org/pkg/europecv), [moderncv](https://ctan.org/pkg/moderncv?lang=en), [currvita](https://ctan.org/pkg/currvita), [simplecv](https://ctan.org/pkg/simplecv), and [readablecv](https://ctan.org/pkg/readablecv). All are worth checking out. I wanted to try to see how \LaTeX\ classes worked so I created this for myself. I am sharing it here in case it is useful to others.
 
 ## Usage
 
@@ -81,7 +81,7 @@ The `\ContactInfo[][]` should be used after the `\begin{document}` command as fo
 ]
 ```
 
-For two columns, the margins are set using the `\contactleftmargin` and `\contactrightmargin` lengths. The `\contactsep` length determines the space between the left and right columns of the contact details section. The default of these lengths are `1in`, `1in`, and `1cm`, respectively. You can customize these lengths by using the `\setlength` command:
+For two columns, the margins are set using the `\contactleftmargin` and `\contactrightmargin` lengths. The `\contactsep` length determines the space between the left and right columns of the contact details section. You can customize these lengths by using the `\setlength` command:
 
 ```tex
 \setlength{\contactleftmargin}{2em} % adjust this value as needed
@@ -113,7 +113,7 @@ The `dated` environment can be used as follows:
 \end{dated}
 ```
 
-The dated environment takes an optional environment that is used as the section title. The default is "Employment". The environment creates a section title using `\section*` and then makes use of the `longtable` environment to create a two column table. The first column is set as left-aligned, but the width of the second column is set using a length titled `\details`: This length determines the width of the second column of the `longtable` in the `dated` environment. It is set to `0.85\textwidth` by default, which means it will take up 85\% of the text width. You can customize this length by using the `\setlength` command:
+The dated environment takes an optional environment that is used as the section title. The default is "Employment". The environment creates a section title using `\section*` and then makes use of the `longtable` environment to create a two column table. The first column is set as left-aligned, but the width of the second column is set using a length titled `\details`: This length determines the width of the second column of the `longtable` in the `dated` environment. You can customize this length by using the `\setlength` command:
 
 ```tex
     \setlength{\details}{0.75\textwidth} % adjust this value as needed
@@ -162,7 +162,7 @@ If you need a different type of list, you can specify that the `rlist` environme
 \end{rlist}
 ```
 
-The environment makes use of the `rlistleftmargin` length, which determines the left margin of the enumerated list in the `rlist` environment. It is set to `2.5em` by default. You can customize this length by using the `\setlength` command in your document:
+The environment makes use of the `rlistleftmargin` length, which determines the left margin of the enumerated list in the `rlist` environment. You can customize this length by using the `\setlength` command in your document:
 
 ```latex
 \setlength\rlistleftmargin{2em} % adjust this value as needed    
