@@ -51,8 +51,6 @@
 \fancyhead[L]{\large \sffamily \storedauthor}
 \fancyhead[R]{\large \sffamily CV - \thepage}
 
-
-
 % SECTION FORMATTING 4
 \RequirePackage{titlesec}
 \titlespacing*{\section}{0pt}{0.75\baselineskip}{.25\baselineskip}
@@ -61,11 +59,11 @@
 % Contact Row Command
 \newcommand{\crow}[1][]{\item[#1]}
 \newlength{\contactleftmargin}
-\setlength{\contactleftmargin}{1in}
+\setlength{\contactleftmargin}{.15\textwidth}
 \newlength{\contactrightmargin}
-\setlength{\contactrightmargin}{1in}
+\setlength{\contactrightmargin}{.05\textwidth}
 \newlength{\contactsep}
-\setlength{\contactsep}{1cm}
+\setlength{\contactsep}{.05\textwidth}
 %% CONTACT COMMAND
 % Define your contact info command
 \NewDocumentCommand{\ContactInfo}{O{1}oo}{
@@ -101,7 +99,7 @@
 %\newlength{\startenddate}
 %\setlength{\startenddate}{0.15\textwidth}
 \newlength{\details}
-\setlength{\details}{0.85\textwidth}
+\setlength{\details}{0.825\textwidth}
 
 \newenvironment{dated}[1][Employment]
 {\section*{#1}\vspace{-\baselineskip}\setlength\LTleft{1.25em}\begin{longtable}{@{}lp{\details}@{}}}{\end{longtable}}
