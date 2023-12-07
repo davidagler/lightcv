@@ -99,10 +99,10 @@
 %\newlength{\startenddate}
 %\setlength{\startenddate}{0.15\textwidth}
 \newlength{\details}
-\setlength{\details}{0.825\textwidth}
-
+\setlength{\details}{0.81\textwidth}
+%\LTleft{1.25em}
 \newenvironment{dated}[1][Employment]
-{\section*{#1}\vspace{-\baselineskip}\setlength\LTleft{1.25em}\begin{longtable}{@{}lp{\details}@{}}}{\end{longtable}}
+{\section*{#1}\vspace{-\baselineskip}\setlength\LTleft{.0275\textwidth}\begin{longtable}{@{}lp{\details}@{}}}{\end{longtable}}
 
 %% RLIST ENVIRONMENT
 % \newenvironment{rlist}[1][Publications] - Used to create a section with a reverse enumerated list. Use is just like a list environment: \begin{rlist}\item First item \item Second item \end{rlist} Optional second argument can be used to specify the type of list (e.g. enumerate, itemize, description, etc.)
@@ -116,10 +116,9 @@
     \end{#2}
 }
 
-
 %% CATSEC ENVIRONMENT
 \newlength{\catsep}
-\setlength{\catsep}{0.5em}
+\setlength{\catsep}{0.25em}
 \newlength{\catnameboxwidth}
 \setlength{\catnameboxwidth}{.15\textwidth}
 \newlength{\catdescboxwidth}
