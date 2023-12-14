@@ -53,7 +53,7 @@
 
 % SECTION FORMATTING 4
 \RequirePackage{titlesec}
-\titlespacing*{\section}{0pt}{0.75\baselineskip}{.25\baselineskip}
+\titlespacing*{\section}{0pt}{0.5\baselineskip}{.25\baselineskip}
 \titleformat{\section}{\Large\sffamily}{\thesection}{1em}{}
 
 % Contact Row Command
@@ -124,7 +124,7 @@
 \newlength{\catdescboxwidth}
 \setlength{\catdescboxwidth}{.8\textwidth}
 
-\newenvironment{catsec}[1][Category Section]{\section*{#1}}{\vspace{-10pt}}
+\newenvironment{catsec}[1][Category Section]{\section*{#1}}{\vspace{.5\baselineskip}}
 
 \NewDocumentCommand{\catbox}{mm}{
     \hspace{\catindent}
