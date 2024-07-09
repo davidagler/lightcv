@@ -1,10 +1,98 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{lightcv}[2023-12-01 LightCV is a \LaTeX\ for creating CVs. The goal is to create a simple, easy to use template rather than a robust class. The class is based on the article class. The target audience is people who are not familiar with \LaTeX\ and want to create a CV or resume.]
+\ProvidesClass{lightcv}[2024-7-09 LightCV is a \LaTeX\ for creating CVs. The goal is to create a simple, easy to use template rather than a robust class. The class is based on the article class. The target audience is people who are not familiar with \LaTeX\ and want to create a CV or resume.]
 
-\RequirePackage{xcolor, pagecolor}
+\RequirePackage[dvipsnames*,svgnames]{xcolor}
+\RequirePackage{pagecolor}
 \definecolor{uberdarkgray}{gray}{0.15}
+% Options
 \DeclareOption{darkmode}{\pagecolor{uberdarkgray}\color{gray!30}}
 \DeclareOption{lightmode}{\pagecolor{white}\color{black}}
+\DeclareOption{pinkmode}{\pagecolor{pink!50}\color{black!90}}
+\DeclareOption{limemode}{\pagecolor{lime}\color{black!90}}
+
+\DeclareOption{redmode}{\pagecolor{red}\color{white}}
+\DeclareOption{greenmode}{\pagecolor{green}\color{black}}
+\DeclareOption{bluemode}{\pagecolor{blue}\color{white}}
+\DeclareOption{yellowmode}{\pagecolor{yellow}\color{black}}
+\DeclareOption{orangemode}{\pagecolor{orange}\color{black}}
+\DeclareOption{brownmode}{\pagecolor{brown}\color{black}}
+\DeclareOption{purplemode}{\pagecolor{purple}\color{white}}
+\DeclareOption{cyanmode}{\pagecolor{cyan}\color{black}}
+\DeclareOption{magenta}{\pagecolor{magenta}\color{black}}
+\DeclareOption{graymode}{\pagecolor{gray}\color{black}}
+\DeclareOption{blackmode}{\pagecolor{black}\color{white}}
+
+\DeclareOption{apricotmode}{\pagecolor{Apricot}\color{black}}
+\DeclareOption{aquamarinemode}{\pagecolor{Aquamarine}\color{black}}
+\DeclareOption{bittersweetmode}{\pagecolor{Bittersweet}\color{black}}
+\DeclareOption{blackmode}{\pagecolor{Black}\color{white}}
+\DeclareOption{bluemode}{\pagecolor{Blue}\color{white}}
+\DeclareOption{bluegreenmode}{\pagecolor{BlueGreen}\color{black}}
+\DeclareOption{bluevioletmode}{\pagecolor{BlueViolet}\color{white}}
+\DeclareOption{brickredmode}{\pagecolor{BrickRed}\color{white}}
+\DeclareOption{brownmode}{\pagecolor{Brown}\color{white}}
+\DeclareOption{burntorangemode}{\pagecolor{BurntOrange}\color{black}}
+\DeclareOption{cadetbluemode}{\pagecolor{CadetBlue}\color{white}}
+\DeclareOption{carnationpinkmode}{\pagecolor{CarnationPink}\color{black}}
+\DeclareOption{ceruleanmode}{\pagecolor{Cerulean}\color{black}}
+\DeclareOption{cornflowerbluemode}{\pagecolor{CornflowerBlue}\color{black}}
+\DeclareOption{cyanmode}{\pagecolor{Cyan}\color{black}}
+\DeclareOption{dandelionmode}{\pagecolor{Dandelion}\color{black}}
+\DeclareOption{darkorchidmode}{\pagecolor{DarkOrchid}\color{white}}
+\DeclareOption{emeraldmode}{\pagecolor{Emerald}\color{black}}
+\DeclareOption{forestgreenmode}{\pagecolor{ForestGreen}\color{white}}
+\DeclareOption{fuchsiamode}{\pagecolor{Fuchsia}\color{white}}
+\DeclareOption{goldenrodmode}{\pagecolor{Goldenrod}\color{black}}
+\DeclareOption{graymode}{\pagecolor{Gray}\color{black}}
+\DeclareOption{greenmode}{\pagecolor{Green}\color{white}}
+\DeclareOption{greenyellowmode}{\pagecolor{GreenYellow}\color{black}}
+\DeclareOption{junglegreenmode}{\pagecolor{JungleGreen}\color{black}}
+\DeclareOption{lavendermode}{\pagecolor{Lavender}\color{black}}
+\DeclareOption{limegreenmode}{\pagecolor{LimeGreen}\color{black}}
+\DeclareOption{magentamode}{\pagecolor{Magenta}\color{black}}
+\DeclareOption{mahoganymode}{\pagecolor{Mahogany}\color{white}}
+\DeclareOption{maroonmode}{\pagecolor{Maroon}\color{white}}
+\DeclareOption{melonmode}{\pagecolor{Melon}\color{black}}
+\DeclareOption{midnightbluemode}{\pagecolor{MidnightBlue}\color{white}}
+\DeclareOption{mulberrymode}{\pagecolor{Mulberry}\color{white}}
+\DeclareOption{navybluemode}{\pagecolor{NavyBlue}\color{white}}
+\DeclareOption{olivegreenmode}{\pagecolor{OliveGreen}\color{white}}
+\DeclareOption{orangemode}{\pagecolor{Orange}\color{black}}
+\DeclareOption{orangeredmode}{\pagecolor{OrangeRed}\color{white}}
+\DeclareOption{orchidmode}{\pagecolor{Orchid}\color{black}}
+\DeclareOption{peachmode}{\pagecolor{Peach}\color{black}}
+\DeclareOption{periwinklemode}{\pagecolor{Periwinkle}\color{white}}
+\DeclareOption{pinegreenmode}{\pagecolor{PineGreen}\color{white}}
+\DeclareOption{plummode}{\pagecolor{Plum}\color{white}}
+\DeclareOption{processbluemode}{\pagecolor{ProcessBlue}\color{black}}
+\DeclareOption{purplemode}{\pagecolor{Purple}\color{white}}
+\DeclareOption{rawsiennamode}{\pagecolor{RawSienna}\color{white}}
+\DeclareOption{redmode}{\pagecolor{Red}\color{white}}
+\DeclareOption{redorangemode}{\pagecolor{RedOrange}\color{white}}
+\DeclareOption{redvioletmode}{\pagecolor{RedViolet}\color{white}}
+\DeclareOption{rhodaminemode}{\pagecolor{Rhodamine}\color{black}}
+\DeclareOption{royalbluemode}{\pagecolor{RoyalBlue}\color{white}}
+\DeclareOption{royalpurplemode}{\pagecolor{RoyalPurple}\color{white}}
+\DeclareOption{rubineredmode}{\pagecolor{RubineRed}\color{white}}
+\DeclareOption{salmonmode}{\pagecolor{Salmon}\color{black}}
+\DeclareOption{seagreenmode}{\pagecolor{SeaGreen}\color{white}}
+\DeclareOption{sepiamode}{\pagecolor{Sepia}\color{white}}
+\DeclareOption{skybluemode}{\pagecolor{SkyBlue}\color{black}}
+\DeclareOption{springgreenmode}{\pagecolor{SpringGreen}\color{black}}
+\DeclareOption{tanmode}{\pagecolor{Tan}\color{black}}
+\DeclareOption{tealbluemode}{\pagecolor{TealBlue}\color{white}}
+\DeclareOption{thistlemode}{\pagecolor{Thistle}\color{black}}
+\DeclareOption{turquoisemode}{\pagecolor{Turquoise}\color{black}}
+\DeclareOption{violetmode}{\pagecolor{Violet}\color{white}}
+\DeclareOption{violetredmode}{\pagecolor{VioletRed}\color{black}}
+\DeclareOption{whitemode}{\pagecolor{White}\color{black}}
+\DeclareOption{wildstrawberrymode}{\pagecolor{WildStrawberry}\color{white}}
+\DeclareOption{yellowmode}{\pagecolor{Yellow}\color{black}}
+\DeclareOption{yellowgreenmode}{\pagecolor{YellowGreen}\color{black}}
+\DeclareOption{yelloworangemode}{\pagecolor{YellowOrange}\color{black}}
+
+%%%%%%%%%%%%
+
 \DeclareOption{p1noheader}{\AtBeginDocument{\thispagestyle{empty}}}
 \DeclareOption{p1header}{} % Define an option to enable/enable the header
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
@@ -48,8 +136,11 @@
     \def\storedauthor{#1}%
   \fi
 }
+\newcommand{\lightheadertitle}[1][CV]{#1}
+\newcommand{\lightheadersep}[1][-]{#1}
 \fancyhead[L]{\large \sffamily \storedauthor}
-\fancyhead[R]{\large \sffamily CV - \thepage}
+\fancyhead[R]{\large \sffamily \lightheadertitle\ \lightheadersep\ \thepage}
+
 
 % SECTION FORMATTING 4
 \RequirePackage{titlesec}
