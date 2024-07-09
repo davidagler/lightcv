@@ -3,28 +3,15 @@
 
 \RequirePackage[dvipsnames*,svgnames]{xcolor}
 \RequirePackage{pagecolor}
+
+% Base Modes
 \definecolor{uberdarkgray}{gray}{0.15}
-% Options
-\DeclareOption{darkmode}{\pagecolor{uberdarkgray}\color{gray!30}}
+\DeclareOption{graymode}{\pagecolor{uberdarkgray}\color{gray!30}}
 \DeclareOption{lightmode}{\pagecolor{white}\color{black}}
-\DeclareOption{pinkmode}{\pagecolor{pink!50}\color{black!90}}
-\DeclareOption{limemode}{\pagecolor{lime}\color{black!90}}
+\DeclareOption{darkmode}{\pagecolor{black!90}\color{white}}
 
-\DeclareOption{redmode}{\pagecolor{red}\color{white}}
-\DeclareOption{greenmode}{\pagecolor{green}\color{black}}
-\DeclareOption{bluemode}{\pagecolor{blue}\color{white}}
-\DeclareOption{yellowmode}{\pagecolor{yellow}\color{black}}
-\DeclareOption{orangemode}{\pagecolor{orange}\color{black}}
-\DeclareOption{brownmode}{\pagecolor{brown}\color{black}}
-\DeclareOption{purplemode}{\pagecolor{purple}\color{white}}
-\DeclareOption{cyanmode}{\pagecolor{cyan}\color{black}}
-\DeclareOption{magenta}{\pagecolor{magenta}\color{black}}
-\DeclareOption{graymode}{\pagecolor{gray}\color{black}}
-\DeclareOption{blackmode}{\pagecolor{black}\color{white}}
 
-\DeclareOption{apricotmode}{\pagecolor{Apricot}\color{black}}
 \DeclareOption{aquamarinemode}{\pagecolor{Aquamarine}\color{black}}
-\DeclareOption{bittersweetmode}{\pagecolor{Bittersweet}\color{black}}
 \DeclareOption{blackmode}{\pagecolor{Black}\color{white}}
 \DeclareOption{bluemode}{\pagecolor{Blue}\color{white}}
 \DeclareOption{bluegreenmode}{\pagecolor{BlueGreen}\color{black}}
@@ -43,14 +30,14 @@
 \DeclareOption{forestgreenmode}{\pagecolor{ForestGreen}\color{white}}
 \DeclareOption{fuchsiamode}{\pagecolor{Fuchsia}\color{white}}
 \DeclareOption{goldenrodmode}{\pagecolor{Goldenrod}\color{black}}
-\DeclareOption{graymode}{\pagecolor{Gray}\color{black}}
 \DeclareOption{greenmode}{\pagecolor{Green}\color{white}}
 \DeclareOption{greenyellowmode}{\pagecolor{GreenYellow}\color{black}}
 \DeclareOption{junglegreenmode}{\pagecolor{JungleGreen}\color{black}}
 \DeclareOption{lavendermode}{\pagecolor{Lavender}\color{black}}
+\DeclareOption{limemode}{\pagecolor{lime}\color{black!90}}
 \DeclareOption{limegreenmode}{\pagecolor{LimeGreen}\color{black}}
-\DeclareOption{magentamode}{\pagecolor{Magenta}\color{black}}
 \DeclareOption{mahoganymode}{\pagecolor{Mahogany}\color{white}}
+\DeclareOption{magentamode}{\pagecolor{Magenta}\color{black}}
 \DeclareOption{maroonmode}{\pagecolor{Maroon}\color{white}}
 \DeclareOption{melonmode}{\pagecolor{Melon}\color{black}}
 \DeclareOption{midnightbluemode}{\pagecolor{MidnightBlue}\color{white}}
@@ -63,6 +50,7 @@
 \DeclareOption{peachmode}{\pagecolor{Peach}\color{black}}
 \DeclareOption{periwinklemode}{\pagecolor{Periwinkle}\color{white}}
 \DeclareOption{pinegreenmode}{\pagecolor{PineGreen}\color{white}}
+\DeclareOption{pinkmode}{\pagecolor{pink!50}\color{black!90}}
 \DeclareOption{plummode}{\pagecolor{Plum}\color{white}}
 \DeclareOption{processbluemode}{\pagecolor{ProcessBlue}\color{black}}
 \DeclareOption{purplemode}{\pagecolor{Purple}\color{white}}
@@ -84,12 +72,9 @@
 \DeclareOption{thistlemode}{\pagecolor{Thistle}\color{black}}
 \DeclareOption{turquoisemode}{\pagecolor{Turquoise}\color{black}}
 \DeclareOption{violetmode}{\pagecolor{Violet}\color{white}}
-\DeclareOption{violetredmode}{\pagecolor{VioletRed}\color{black}}
-\DeclareOption{whitemode}{\pagecolor{White}\color{black}}
-\DeclareOption{wildstrawberrymode}{\pagecolor{WildStrawberry}\color{white}}
-\DeclareOption{yellowmode}{\pagecolor{Yellow}\color{black}}
+\DeclareOption{violetredmode}{\pagecolor{VioletRed}\color{white}}
+\DeclareOption{yellowmode}{\pagecolor{yellow}\color{black}}
 \DeclareOption{yellowgreenmode}{\pagecolor{YellowGreen}\color{black}}
-\DeclareOption{yelloworangemode}{\pagecolor{YellowOrange}\color{black}}
 
 %%%%%%%%%%%%
 
@@ -109,6 +94,7 @@
 \RequirePackage[breaklinks]{hyperref}
 \RequirePackage{url}
 \hypersetup{colorlinks=true, breaklinks=true}
+
 
 % HEADERS AND FOOTERS
 \RequirePackage{fancyhdr}

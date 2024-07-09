@@ -9,7 +9,7 @@ tags:
 ---
 # LightCV
 
-LightCV is a LaTeX class for creating a simple CV or resume. It is based on the article class, with additions for a CV. There are several good (and probably better) CV classes and packages available. Some include: [biblatex-cv](https://ctan.org/pkg/biblatex-cv), [cv](https://ctan.org/pkg/cv), [EuropeCV](https://ctan.org/pkg/europecv), [moderncv](https://ctan.org/pkg/moderncv?lang=en), [currvita](https://ctan.org/pkg/currvita), [simplecv](https://ctan.org/pkg/simplecv), and [readablecv](https://ctan.org/pkg/readablecv). All are worth checking out. I wanted to try to see how \LaTeX\ classes worked so I created this for myself. I am sharing it here in case it is useful to others.
+LightCV is a LaTeX class for creating a simple CV or resume. It is based on the article class, with additions for a CV. There are several good (and probably better) CV classes and packages available. Some include: [biblatex-cv](https://ctan.org/pkg/biblatex-cv), [cv](https://ctan.org/pkg/cv), [EuropeCV](https://ctan.org/pkg/europecv), [moderncv](https://ctan.org/pkg/moderncv?lang=en), [currvita](https://ctan.org/pkg/currvita), [simplecv](https://ctan.org/pkg/simplecv), and [readablecv](https://ctan.org/pkg/readablecv). All are worth checking out. I wanted to try to see how \LaTeX\ classes worked so I created this for myself. I am sharing it here in case because it is fun and maybe will be useful to others.
 
 ## Usage
 
@@ -36,11 +36,20 @@ In addition, the `lightcv` class accepts an option based on whether you want a h
 - \documentclass[p1header]{lightcv} % Header on first page
 ```
 
-Another option is to load `darkmode` or `lightmode` (default `lightmode`). Right now, `darkmode` only changes the page color to black and the text to gray.
+LightCV has various styles or "modes". The basic ones are `darkmode` and `lightmode` (default `lightmode`). Using `darkmode` changes the page color to black and the text to gray.
+
 
 ```latex
 \documentclass[darkmode]{lightcv}
 ```
+
+![alt text](imgs/darkmode.png)
+
+There are plenty of other modes to play around with (some of which are hideous). Here is `limemode`:
+
+![alt text](imgs/limemode.png)
+
+The different modes are defined at the beginning of the `lightcv.cls` file (I'm not sure if all of them work properly). If you create one that looks good, I'm happy to add it.
 
 Some of the `article` class options are not compatible with the `lightcv` class. For example, `twocolumn` will produce an error message since the `lightcv` class is not designed for two columns.
 
@@ -100,6 +109,19 @@ Personally, I like using [fontawesome icons](https://ctan.org/pkg/fontawesome?la
 ```
 
 In the future, I plan to implement a command that will allow to specify add a third column.
+
+### Header Information
+
+The header is defined in the `lightcv.cls` file using the following:
+
+```latex
+\newcommand{\lightheadertitle}[1][CV]{#1}
+\newcommand{\lightheadersep}[1][-]{#1}
+\fancyhead[L]{\large \sffamily \storedauthor}
+\fancyhead[R]{\large \sffamily \lightheadertitle\ \lightheadersep\ \thepage}
+```
+
+You can tinker with this by replacing "CV", the separator "-", or replacing `\thepage`. Another option is to add the date.
 
 ### The Dated Environment
 
