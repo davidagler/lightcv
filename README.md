@@ -7,18 +7,20 @@ tags:
     - LaTeX
     - Class
 ---
+
+![alt text](imgs/lightcv_thumb.png)
+
 # LightCV
 
-LightCV is a LaTeX class for creating a simple CV or resume. It is based on the article class, with additions for a CV. There are several good (and probably better) CV classes and packages available. Some include: [biblatex-cv](https://ctan.org/pkg/biblatex-cv), [cv](https://ctan.org/pkg/cv), [EuropeCV](https://ctan.org/pkg/europecv), [moderncv](https://ctan.org/pkg/moderncv?lang=en), [currvita](https://ctan.org/pkg/currvita), [simplecv](https://ctan.org/pkg/simplecv), [readablecv](https://ctan.org/pkg/readablecv), and [mycv](https://ctan.org/pkg/mycv). All are worth checking out. 
+LightCV is a LaTeX class for creating a simple CV or resume. It is based on the article class. There are several good (and probably better) CV classes and packages available. Some include: [biblatex-cv](https://ctan.org/pkg/biblatex-cv), [cv](https://ctan.org/pkg/cv), [EuropeCV](https://ctan.org/pkg/europecv), [moderncv](https://ctan.org/pkg/moderncv?lang=en), [currvita](https://ctan.org/pkg/currvita), [simplecv](https://ctan.org/pkg/simplecv), [readablecv](https://ctan.org/pkg/readablecv), and [mycv](https://ctan.org/pkg/mycv). All are worth checking out. 
 
 I created this class for two reasons: (1) I wanted a super simple way to make my cv and (2) I wanted to try to see how $\LaTeX$ classes worked (this is my first $\LaTeX$ class).
 
 ## Usage
 
+Video Overview: https://youtu.be/ml3xamfAbpQ
+
 The class is used like any other $\LaTeX$ class. Take the `lightcv.cls` and put it in the same directory as your `.tex` file. Then add `\documentclass{lightcv}` to the top of your main `.tex` file.
-
-
-
 
 
 ## Options
