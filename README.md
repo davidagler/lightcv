@@ -9,17 +9,17 @@ tags:
 ---
 # LightCV
 
-LightCV is a LaTeX class for creating a simple CV or resume. It is based on the article class, with additions for a CV. There are several good (and probably better) CV classes and packages available. Some include: [biblatex-cv](https://ctan.org/pkg/biblatex-cv), [cv](https://ctan.org/pkg/cv), [EuropeCV](https://ctan.org/pkg/europecv), [moderncv](https://ctan.org/pkg/moderncv?lang=en), [currvita](https://ctan.org/pkg/currvita), [simplecv](https://ctan.org/pkg/simplecv), and [readablecv](https://ctan.org/pkg/readablecv). All are worth checking out. I wanted to try to see how \LaTeX\ classes worked so I created this for myself. I am sharing it here in case because it is fun and maybe will be useful to others.
+LightCV is a LaTeX class for creating a simple CV or resume. It is based on the article class, with additions for a CV. There are several good (and probably better) CV classes and packages available. Some include: [biblatex-cv](https://ctan.org/pkg/biblatex-cv), [cv](https://ctan.org/pkg/cv), [EuropeCV](https://ctan.org/pkg/europecv), [moderncv](https://ctan.org/pkg/moderncv?lang=en), [currvita](https://ctan.org/pkg/currvita), [simplecv](https://ctan.org/pkg/simplecv), [readablecv](https://ctan.org/pkg/readablecv), and [mycv](https://ctan.org/pkg/mycv). All are worth checking out. 
+
+I created this class for two reasons: (1) I wanted a super simple way to make my cv and (2) I wanted to try to see how $\LaTeX$ classes worked (this is my first $\LaTeX$ class).
 
 ## Usage
 
-The class is used like any other \LaTeX\ class. Take the `lightcv.cls` and put it in the same directory as your `.tex` file. Then add `\documentclass{lightcv}` to the top of your `.tex` file.
+The class is used like any other $\LaTeX$ class. Take the `lightcv.cls` and put it in the same directory as your `.tex` file. Then add `\documentclass{lightcv}` to the top of your main `.tex` file.
 
-The following is a minimal example:
 
-```latex
-\documentclass{lightcv}
-```
+
+
 
 ## Options
 
@@ -79,6 +79,26 @@ The `\ContactInfo[][]` should be used after the `\begin{document}` command as fo
 ]
 ```
 
+Here is a simple example of a single column:
+
+```latex
+\documentclass{lightcv}
+\author{David W. Agler}
+\begin{document}
+\ContactInfo[1][
+\crow [\faEnvelopeO] myemail@fakeemail.com
+ \crow[\faGlobe]  \href{www.davidagler.com}{davidagler.com}
+ \crow[{\faYoutube}] \href{https://www.youtube.com/davidagler}{youtube.com/davidagler}
+ \crow[\faGithub] \href{https://www.github.com/davidagler}{github.com/davidagler}
+ \crow[\faArchive] \today
+]
+\end{document}
+```
+
+![alt text](imgs/minimal.png)
+
+Here is an example that contains two columns:
+
 ```latex
 % Two columns of contact details
 \ContactInfo[2][
@@ -89,6 +109,9 @@ The `\ContactInfo[][]` should be used after the `\begin{document}` command as fo
     \crow[]{github.com/johndoe}
 ]
 ```
+
+![alt text](imgs/minimal2.png)
+
 
 For two columns, the margins are set using the `\contactleftmargin` and `\contactrightmargin` lengths. The `\contactsep` length determines the space between the left and right columns of the contact details section. You can customize these lengths by using the `\setlength` command:
 
