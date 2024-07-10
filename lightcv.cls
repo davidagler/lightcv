@@ -78,6 +78,8 @@
 
 %%%%%%%%%%%%
 
+
+
 \DeclareOption{p1noheader}{\AtBeginDocument{\thispagestyle{empty}}}
 \DeclareOption{p1header}{} % Define an option to enable/enable the header
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
@@ -85,15 +87,20 @@
 % LOAD CLASS
 \LoadClass[]{article}
 
+\RequirePackage[breaklinks]{hyperref}
+\RequirePackage{url}
+\hypersetup{colorlinks=true, breaklinks=true, colorlinks=true,
+    linkcolor=blue, filecolor=magenta, urlcolor=magenta}
+\urlstyle{same}
+
 \RequirePackage[margin=1in, bottom=0.8in, headheight=18pt]{geometry}
 \RequirePackage{enumitem, etaremune, longtable, array} 
 % Lengths
 \setlength{\parindent}{0pt} % 0 par indentation
 \setlength{\headsep}{0.5cm} % Space between header and body
 
-\RequirePackage[breaklinks]{hyperref}
-\RequirePackage{url}
-\hypersetup{colorlinks=true, breaklinks=true}
+
+
 
 
 % HEADERS AND FOOTERS
