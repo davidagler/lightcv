@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{lightcv}[2024-7-09 LightCV is a \LaTeX\ for creating CVs. The goal is to create a simple, easy to use template rather than a robust class. The class is based on the article class. The target audience is people who are not familiar with \LaTeX\ and want to create a CV or resume.]
+\ProvidesClass{lightcv}[2024709 LightCV is a \LaTeX\ for creating CVs. The goal is to create a simple, easy to use template rather than a robust class. The class is based on the article class. The target audience is people who are not familiar with \LaTeX\ and want to create a CV or resume.]
 
 \RequirePackage[dvipsnames*,svgnames]{xcolor}
 \RequirePackage{pagecolor}
@@ -9,8 +9,6 @@
 \DeclareOption{graymode}{\pagecolor{uberdarkgray}\color{gray!30}}
 \DeclareOption{lightmode}{\pagecolor{white}\color{black}}
 \DeclareOption{darkmode}{\pagecolor{black!90}\color{white}}
-
-
 \DeclareOption{aquamarinemode}{\pagecolor{Aquamarine}\color{black}}
 \DeclareOption{blackmode}{\pagecolor{Black}\color{white}}
 \DeclareOption{bluemode}{\pagecolor{Blue}\color{white}}
@@ -78,8 +76,6 @@
 
 %%%%%%%%%%%%
 
-
-
 \DeclareOption{p1noheader}{\AtBeginDocument{\thispagestyle{empty}}}
 \DeclareOption{p1header}{} % Define an option to enable/enable the header
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
@@ -96,12 +92,8 @@
 \RequirePackage[margin=1in, bottom=0.8in, headheight=18pt]{geometry}
 \RequirePackage{enumitem, etaremune, longtable, array} 
 % Lengths
-\setlength{\parindent}{0pt} % 0 par indentation
-\setlength{\headsep}{0.5cm} % Space between header and body
-
-
-
-
+\setlength{\parindent}{0pt}% 0 par indentation
+\setlength{\headsep}{0.5cm}% Space between header and body
 
 % HEADERS AND FOOTERS
 \RequirePackage{fancyhdr}
@@ -118,7 +110,7 @@
 
 % Store the author information to use as title and header
 \newcommand{\storedauthor}{} % init the var
-\let\originalauthor\author
+\let\originalauthor\author%
 \renewcommand{\author}[1]{%
   \originalauthor{#1}%
   \if\relax\detokenize{#1}\relax
@@ -150,7 +142,7 @@
 \setlength{\contactsep}{.05\textwidth}
 %% CONTACT COMMAND
 % Define your contact info command
-\NewDocumentCommand{\ContactInfo}{O{1}oo}{
+\NewDocumentCommand{\ContactInfo}{O{1}oo}{%
   {\centering\Huge\storedauthor\par\vspace{0.25em}\normalsize}%\sffamily\
   \ifthenelse{#1=1}{% Single contact info
   \begin{minipage}[t]{1\textwidth}
@@ -190,49 +182,48 @@
 
 %% RLIST ENVIRONMENT
 % \newenvironment{rlist}[1][Publications] - Used to create a section with a reverse enumerated list. Use is just like a list environment: \begin{rlist}\item First item \item Second item \end{rlist} Optional second argument can be used to specify the type of list (e.g. enumerate, itemize, description, etc.)
-\newlength{\rlistleftmargin}
-\setlength{\rlistleftmargin}{2.5em}
-\NewDocumentEnvironment{rlist}{O{Publications} O{etaremune}}{
-    \section*{#1}
-    \begin{#2}[leftmargin=\rlistleftmargin, labelsep=0.5em]
-    \setlength{\itemsep}{0pt}
-}{
-    \end{#2}
-}
+\newlength{\rlistleftmargin}%
+\setlength{\rlistleftmargin}{2.5em}%
+\NewDocumentEnvironment{rlist}{O{Publications} O{etaremune}}{%
+\section*{#1}%
+\begin{#2}[leftmargin=\rlistleftmargin, labelsep=0.5em]%
+\setlength{\itemsep}{0pt}%
+}{%
+\end{#2}%
+}%
 
 %% CATSEC ENVIRONMENT
-\newlength{\catsep}
-\setlength{\catsep}{0.25em}
-\newlength{\catnameboxwidth}
-\setlength{\catnameboxwidth}{.15\textwidth}
-\newlength{\catdescboxwidth}
-\setlength{\catdescboxwidth}{.8\textwidth}
+\newlength{\catsep}%
+\setlength{\catsep}{0.25em}%
+\newlength{\catnameboxwidth}%
+\setlength{\catnameboxwidth}{.15\textwidth}%
+\newlength{\catdescboxwidth}%
+\setlength{\catdescboxwidth}{.8\textwidth}%
 
-\newenvironment{catsec}[1][Category Section]{\section*{#1}}{\vspace{.5\baselineskip}}
+\newenvironment{catsec}[1][Category Section]{\section*{#1}}{\vspace{.5\baselineskip}}%
 
 \NewDocumentCommand{\catbox}{mm}{
-    \hspace{\catindent}
-    \begin{minipage}[t]{\catnameboxwidth}%
-    #1%
-    \end{minipage}
-    \hspace{\catsep}
-    \begin{minipage}[t]{\catdescboxwidth}%
-      #2%
-      \end{minipage}\hfill\smallbreak\par
-        }
-
-\newlength{\catindent}
-\setlength{\catindent}{1em}
-\NewDocumentCommand{\catlist}{mm}{%
 \hspace{\catindent}
 \begin{minipage}[t]{\catnameboxwidth}%
 #1%
 \end{minipage}
 \hspace{\catsep}
 \begin{minipage}[t]{\catdescboxwidth}%
-    \begin{itemize}[leftmargin=0em,noitemsep,topsep=0pt, partopsep=0pt,labelsep=0.5em, label={-}]%
-        #2%
-    \end{itemize}%
-  \end{minipage}\hfill\medbreak\par
-  }
-      
+#2%
+\end{minipage}\hfill\smallbreak\par
+}
+
+\newlength{\catindent}%
+\setlength{\catindent}{1em}%
+\NewDocumentCommand{\catlist}{mm}{%
+\hspace{\catindent}%
+\begin{minipage}[t]{\catnameboxwidth}%
+#1%
+\end{minipage}%
+\hspace{\catsep}%
+\begin{minipage}[t]{\catdescboxwidth}%
+\begin{itemize}[leftmargin=0em,noitemsep,topsep=0pt, partopsep=0pt,labelsep=0.5em, label={-}]%
+#2%
+\end{itemize}%
+\end{minipage}\hfill\medbreak\par%
+}%
